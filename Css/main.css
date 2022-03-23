@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    color: #fff;
+}
+
+h3 {
+    color: black;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 20px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr;
+
+    gap: 3px;
+
+    box-sizing: border-box;
+}
+
+.container div {
+    padding: 10px;
+}
+
+.connected_disconnected_image {
+    float: left;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 35px;
+    left: 185px;
+}
+
+.header {
+    background: #FF8C00;
+    border: 1px solid #FF8C00;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    align-items: center;
+    text-align: center;
+}
+
+.header h1 {
+    height: 80%;
+    margin: 0px 0px 0px 0px;
+}
+
+.joint_states {
+    background: #F5DEB3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+    align-content: center;
+}
+
+.power_source {
+    background: #F5DEB3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+}
+
+.robot_position {
+    background: #F5DEB3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    text-align: center;
+}
+
+.robot_orientation {
+    background: #F5DEB3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    text-align: center;
+}
+
+/* TABLE STYLE */
+.table_even_row, .table_odd_row {
+    background: #fdf2e9;
+    color:black;
+}
+
+#iwaam_label {
+    flex: 0.1 0.1 auto;
+    float: left;
+    color: black;
+    margin: 0 0 0 0;
+}
+
+#joint_state {
+    margin-top: 40px;
+    font-size: 35px;
+    color: #111;
+    width: 80%;
+    height: 70%;
+    background: #fdf2e9;
+    padding: 10px;
+}
+
+#observacao{
+    margin-top: 20px;
+    color: black;
+}
+
+#power_sourcer {
+    font-size: 45px;
+    padding: 10px;
+}
+
+#robot_position, #robot_orientation {
+    margin-top: 30px;
+    font-size: 45px;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}

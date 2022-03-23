@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="Css/main.css">
+
+        <title>iWAAM (HKS TYPE)</title>
+
+        <!-- LIBRARIES -->
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+
+        <!-- IMPORTED JAVASCRIPT FOR ROS CONNECTION -->
+        <script type="text/javascript" src="Javascripts/eventemitter2.min.js"></script>
+        <script type="text/javascript" src="Javascripts/roslib.min.js"></script>
+        <script type="text/javascript" src="Javascripts/three.min.js"></script>
+
+        <!-- JAVASCRIPT FILES -->
+        <script type="text/javascript" src="Javascripts/ConnectionState.js"></script>
+        <!-- <script type="text/javascript" src="Javascripts/Ros.js"></script> -->
+        <script type="text/javascript" src="Javascripts/PowerSource.js"></script>
+        <script type="text/javascript" src="Javascripts/JointStates.js"></script>
+        <script type="text/javascript" src="Javascripts/RobotPosition.js"></script>
+        <script type="text/javascript" src="Javascripts/RobotOrientation.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div id="iwaam_label">
+                    <h1>iWAAM</h1>
+                    <input class='connected_disconnected_image' id="connected_image" type="image" src="img/Connected_Disconnected/Disconnected.png"
+                        onclick="connect()"/>
+                </div>
+            </div>
+
+            <script>
+                setInterval(updateConnectionImage, 300);
+            </script> 
+
+            <div class="power_source">
+                <h3>Power Sourcer Readings</h3>
+                <div style="margin-top: 30px; font-size: 40px; width: 100%; height: 100%;">
+                    <table id="power_sourcer" cellpadding="2" border='1'> </table>
+                </div>
+
+                <script>
+                    createPwrSrcTable();
+                    setInterval(updatePowerSourcerReadings, 300);
+                </script>
+
+            </div>
+            
+            <div class="joint_states">
+                <h3>Joint States</h3>
+                <table id="joint_state" cellspacing="2" border='1' style="margin-left: 100px;">
+                    <th id="table_label">Joints</th>
+                    <th id="table_label">A1</th>
+                    <th id="table_label">A2</th>
+                    <th id="table_label">A3</th>
+                    <th id="table_label">A4</th>
+                    <th id="table_label">A5</th>
+                    <th id="table_label">A6</th>
+                    <th id="table_label">E1*</th>
+                    <th id="table_label">E2*</th>
+                </table>
+                <h2 id="observacao">*Kuka KP2 Table</h2>
+                <script>
+                    createJointStateSubscriber();
+                    generateJointStateTable();
+                    setInterval(updateJointStateTable,300);
+                </script>
+            </div>
+
+            <div class="robot_position">
+                <div class="pose_table">
+                    <h3>Position (m)</h3>
+                    <table id="robot_position" cellpadding="2" border='1'> </table>
+                </div>
+                <div>
+                    <table id="travel_speed" cellpadding="2" border='1'> </table>
+                </div>
+                <script>
+                    createPositionTable();
+                    setInterval(updatePositionTable, 300);
+                </script>
+            </div>
+            
+            <div class="robot_orientation">
+                <div class="pose_table">
+                    <h3>Orientation (RPY in º)</h3>
+                    <table id="robot_orientation" cellpadding="2" border='1'> </table>   
+                </div>
+                <script>
+                    createOrientationTable();
+                    setInterval(updateOrientationTable, 300);
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
